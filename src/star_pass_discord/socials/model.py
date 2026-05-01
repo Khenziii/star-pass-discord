@@ -7,6 +7,7 @@ class SocialMediaPlatform(StrEnum):
     BLUESKY = "Bluesky"
     MASTODON = "Mastodon"
     INSTAGRAM = "Instagram"
+    THREADS = "Threads"
 
 
 @dataclass

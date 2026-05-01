@@ -43,6 +43,10 @@ class RSSBridgeGetter(ABC):
 
             for item in json["items"]:
                 dto = build_bridge_item_dto(item)
+
+                if dto is None:
+                    continue
+
                 post = SocialMediaPost(dto.title, dto.url, self.platform)
                 posts.append(post)
 

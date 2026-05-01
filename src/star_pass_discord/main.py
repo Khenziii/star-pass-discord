@@ -3,6 +3,7 @@ from star_pass_discord.socials import (
     BlueskyGetter,
     MastodonGetter,
     InstagramGetter,
+    ThreadsGetter,
 )
 
 
@@ -37,5 +38,12 @@ def main():
 
     instagram = InstagramGetter()
     posts = instagram.query()
+
+    print(posts)
+
+    label("THREADS")
+
+    threads = ThreadsGetter()
+    posts = threads.query()
 
     print(posts)

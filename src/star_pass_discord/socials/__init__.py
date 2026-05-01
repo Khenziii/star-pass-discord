@@ -4,6 +4,7 @@ from .infrastructure import (
     RSSBridgeBlueskyGetter as BlueskyGetter,
     RSSBridgeMastodonGetter as MastodonGetter,
     RSSBridgeInstagramGetter as InstagramGetter,
+    RSSBridgeThreadsGetter as ThreadsGetter,
 )
 
 
@@ -15,4 +16,5 @@ __all__ = [
     "BlueskyGetter",
     "MastodonGetter",
     "InstagramGetter",
+    "ThreadsGetter",
 ]
