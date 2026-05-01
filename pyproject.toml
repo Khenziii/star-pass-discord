@@ -1,0 +1,16 @@
+[project]
+name = "star-pass-discord"
+version = "0.1.0"
+description = "Discord bot managing STAR-PASS' official server"
+authors = [
+    {name = "Khenzii",email = "khenzii@khenzii.dev"}
+]
+license = {text = "GPL-3.0"}
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
