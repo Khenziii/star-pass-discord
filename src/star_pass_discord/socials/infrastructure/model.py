@@ -6,6 +6,7 @@ class RSSBridgeName(StrEnum):
     YOUTUBE = "YoutubeBridge"
     BLUESKY = "BlueskyBridge"
     MASTODON = "MastodonBridge"
+    INSTAGRAM = "InstagramBridge"
 
 
 @dataclass

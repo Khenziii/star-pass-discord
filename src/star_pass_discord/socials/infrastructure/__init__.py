@@ -4,6 +4,7 @@ from .get import RSSBridgeGetter
 from .youtube import RSSBridgeYouTubeGetter
 from .bluesky import RSSBridgeBlueskyGetter
 from .mastodon import RSSBridgeMastodonGetter
+from .instagram import RSSBridgeInstagramGetter
 
 
 __all__ = [
@@ -16,4 +17,5 @@ __all__ = [
     "RSSBridgeYouTubeGetter",
     "RSSBridgeBlueskyGetter",
     "RSSBridgeMastodonGetter",
+    "RSSBridgeInstagramGetter",
 ]
