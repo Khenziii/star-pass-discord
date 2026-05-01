@@ -1,5 +1,5 @@
 import os
-from .model import Environment, Discord
+from .model import Environment, Discord, Channels, Identifiable
 from dotenv import load_dotenv
 
 
@@ -14,8 +14,13 @@ def get_variable(key: str) -> str:
 def get_environment() -> Environment:
     load_variables()
 
+    social_media = Identifiable(
+        get_environment("DISCORD_CHANNELS_SOCIAL_MEDIA_ID")
+    )
+    channels = Channels(social_media)
     discord = Discord(
-        get_variable("DISCORD_TOKEN")
+        get_variable("DISCORD_TOKEN"),
+        channels,
     )
 
     return Environment(discord)
