@@ -49,4 +49,6 @@ class RSSBridgeGetter(ABC):
             return posts
         except Exception as e:
             print(f"Failed to fetch most recent posts for {self.platform} platform!")
+            print("Requested URL:")
+            print(url)
             raise e

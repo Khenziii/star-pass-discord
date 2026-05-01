@@ -5,6 +5,7 @@ from enum import StrEnum
 class RSSBridgeName(StrEnum):
     YOUTUBE = "YoutubeBridge"
     BLUESKY = "BlueskyBridge"
+    MASTODON = "MastodonBridge"
 
 
 @dataclass

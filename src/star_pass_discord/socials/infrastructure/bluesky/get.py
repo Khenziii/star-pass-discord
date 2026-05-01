@@ -7,5 +7,6 @@ class RSSBridgeBlueskyGetter(RSSBridgeGetter):
         super().__init__(RSSBridgeName.BLUESKY, SocialMediaPlatform.BLUESKY)
 
     def get_additional_args(self):
+        # TODO: replace with an environment variable
         username = "star-pass.bsky.social"
         return f"data_source=getAuthorFeed&user_id={username}&feed_filter=posts_and_author_threads&include_reposts=on"
