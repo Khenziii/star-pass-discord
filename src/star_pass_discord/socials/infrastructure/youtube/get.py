@@ -8,5 +8,6 @@ class RSSBridgeYouTubeGetter(RSSBridgeGetter):
         super().__init__(RSSBridgeName.YOUTUBE, SocialMediaPlatform.YOUTUBE)
 
     def get_additional_args(self):
+        # TODO: replace with an environment variable
         name = quote("@STAR-PASS")
         return f"context=By+custom+name&custom={name}&duration_min=&duration_max="

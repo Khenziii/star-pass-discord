@@ -4,6 +4,7 @@ from enum import StrEnum
 
 class SocialMediaPlatform(StrEnum):
     YOUTUBE = "YouTube"
+    BLUESKY = "Bluesky"
 
 
 @dataclass
