@@ -12,6 +12,7 @@ def label(text: str):
     print(text)
     print()
 
+
 def main():
     label("YOUTUBE")
 

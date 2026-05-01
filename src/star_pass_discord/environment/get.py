@@ -1,5 +1,6 @@
 import os
-from .model import Environment, Discord, Channels, Identifiable, RSSBridge
+from .model import (Environment, Discord, Channels,
+                    Identifiable, RSSBridge, GenericSocialMedia)
 from dotenv import load_dotenv
 
 
@@ -25,4 +26,18 @@ def get_environment() -> Environment:
 
     rss_bridge = RSSBridge(get_variable("RSS_BRIDGE_URL"))
 
-    return Environment(discord, rss_bridge)
+    youtube = GenericSocialMedia(get_variable("YOUTUBE_USERNAME"))
+    bluesky = GenericSocialMedia(get_variable("BLUESKY_USERNAME"))
+    mastodon = GenericSocialMedia(get_variable("MASTODON_USERNAME"))
+    instagram = GenericSocialMedia(get_variable("INSTAGRAM_USERNAME"))
+    threads = GenericSocialMedia(get_variable("THREADS_USERNAME"))
+
+    return Environment(
+        discord,
+        rss_bridge,
+        youtube,
+        bluesky,
+        mastodon,
+        instagram,
+        threads,
+    )

@@ -23,6 +23,16 @@ class RSSBridge:
 
 
 @dataclass
+class GenericSocialMedia:
+    username: str
+
+
+@dataclass
 class Environment:
     discord: Discord
     rss_bridge: RSSBridge
+    youtube: GenericSocialMedia
+    bluesky: GenericSocialMedia
+    mastodon: GenericSocialMedia
+    instagram: GenericSocialMedia
+    threads: GenericSocialMedia
