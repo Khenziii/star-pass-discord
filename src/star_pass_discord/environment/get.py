@@ -1,5 +1,5 @@
 import os
-from .model import Environment, Discord, Channels, Identifiable
+from .model import Environment, Discord, Channels, Identifiable, RSSBridge
 from dotenv import load_dotenv
 
 
@@ -15,7 +15,7 @@ def get_environment() -> Environment:
     load_variables()
 
     social_media = Identifiable(
-        get_environment("DISCORD_CHANNELS_SOCIAL_MEDIA_ID")
+        get_variable("DISCORD_CHANNELS_SOCIAL_MEDIA_ID")
     )
     channels = Channels(social_media)
     discord = Discord(
@@ -23,4 +23,6 @@ def get_environment() -> Environment:
         channels,
     )
 
-    return Environment(discord)
+    rss_bridge = RSSBridge(get_variable("RSS_BRIDGE_URL"))
+
+    return Environment(discord, rss_bridge)

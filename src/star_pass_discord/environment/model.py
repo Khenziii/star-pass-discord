@@ -18,5 +18,11 @@ class Discord:
 
 
 @dataclass
+class RSSBridge:
+    url: str
+
+
+@dataclass
 class Environment:
     discord: Discord
+    rss_bridge: RSSBridge

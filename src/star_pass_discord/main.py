@@ -1,6 +1,8 @@
-from star_pass_discord.environment import get_environment
+from star_pass_discord.socials import YouTubeGetter
 
 
 def main():
-    env = get_environment()
-    print(env.discord.channels.social_media.id)
+    youtube = YouTubeGetter()
+    posts = youtube.query()
+
+    print(posts)
