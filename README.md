@@ -4,10 +4,10 @@ STAR-PASS is an ECI ([European Citizens' Initiative](https://en.wikipedia.org/wi
 
 This repository contains the source code of a Discord bot used in STAR-PASS' official server.
 
-<!-- TODO -->
-<!-- ### Features -->
-<!-- - automatically posting most recent social media posts to a predefined Discord channel-->
-<!-- - tracking the progress of signature collection (there should be a command for this, as well as a channel in which the bot would regularly send messages such as "we've collected 5% of the votes!")-->
+### Features
+
+- automatically posting most recent social media posts to a predefined Discord channel-->
+<!-- - tracking the progress of signature collection (there should be a command for this, as well as a channel in which the bot would regularly send messages such as "we've collected 5% of the votes!") TODO: move this comment to an issue -->
 
 ### Development environment
 
