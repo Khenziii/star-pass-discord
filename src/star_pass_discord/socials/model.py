@@ -14,4 +14,5 @@ class SocialMediaPlatform(StrEnum):
 class SocialMediaPost:
     title: str
     url: str
+    posted_at: str
     platform: SocialMediaPlatform

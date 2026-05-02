@@ -22,10 +22,10 @@ class Client(discord.Client):
     async def on_ready(self):
         print(f"Logged in as {self.user}!")
 
-    @tasks.loop(seconds=10)
+    @tasks.loop(minutes=30)
     async def check_social_media(self):
-        task = CheckSocialMediaTask()
-        self.task_executor.run(task)
+        task = CheckSocialMediaTask(self)
+        await self.task_executor.run(task)
 
     @check_social_media.before_loop
     async def before_check_social_media(self):

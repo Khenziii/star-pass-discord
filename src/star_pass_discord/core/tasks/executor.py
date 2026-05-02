@@ -2,6 +2,6 @@ from .task import Task
 
 
 class TaskExecutor:
-    def run(self, task: Task):
+    async def run(self, task: Task):
         print(f"Running task \"{task.name}\"...")
-        task.run()
+        await task.run()

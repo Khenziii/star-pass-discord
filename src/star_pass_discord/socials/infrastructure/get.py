@@ -50,7 +50,7 @@ class RSSBridgeGetter(ABC):
                 if dto is None:
                     continue
 
-                post = SocialMediaPost(dto.title, dto.url, self.platform)
+                post = SocialMediaPost(dto.title, dto.url, dto.date_modified, self.platform)
                 posts.append(post)
 
             return posts

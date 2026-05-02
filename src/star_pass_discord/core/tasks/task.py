@@ -1,3 +1,4 @@
+import discord
 from abc import ABC, abstractmethod
 from enum import StrEnum
 
@@ -8,10 +9,12 @@ class TaskName(StrEnum):
 
 class Task(ABC):
     name: TaskName
+    client: discord.Client
 
-    def __init__(self, name: TaskName):
+    def __init__(self, client: discord.Client, name: TaskName):
         self.name = name
+        self.client = client
 
     @abstractmethod
-    def run(self):
+    async def run(self):
         pass
