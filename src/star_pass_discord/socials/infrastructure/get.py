@@ -1,8 +1,10 @@
 from dataclasses import dataclass
 from requests import get
 from abc import ABC, abstractmethod
+from star_pass_discord.socials.infrastructure import (
+    RSSBridgeName, build_bridge_item_dto
+)
 from star_pass_discord.socials import SocialMediaPost, SocialMediaPlatform
-from star_pass_discord.socials.infrastructure import RSSBridgeItemDTO, RSSBridgeName, build_bridge_item_dto
 from star_pass_discord.environment import get_environment
 
 
@@ -34,7 +36,8 @@ class RSSBridgeGetter(ABC):
         else:
             additional_args = f"&{additional_args}"
 
-        url = f"{self.shared_config.url}/?action=display&bridge={self.bridge_name}{additional_args}&format=Json"
+        url = f"{self.shared_config.url}/?action=display&bridge={
+            self.bridge_name}{additional_args}&format=Json"
 
         try:
             response = get(url)
@@ -52,7 +55,8 @@ class RSSBridgeGetter(ABC):
 
             return posts
         except Exception as e:
-            print(f"Failed to fetch most recent posts for {self.platform} platform!")
+            print(f"Failed to fetch most recent posts for {
+                  self.platform} platform!")
             print("Requested URL:")
             print(url)
             raise e

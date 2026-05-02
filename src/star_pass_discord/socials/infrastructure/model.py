@@ -14,13 +14,14 @@ class RSSBridgeName(StrEnum):
 class RSSBridgeItemDTO:
     url: str
     title: str
+    date_modified: str
 
 
 def build_bridge_item_dto(data) -> RSSBridgeItemDTO | None:
-    if "url" not in data or "title" not in data:
+    try:
+        return RSSBridgeItemDTO(data["url"], data["title"], data["date_modified"])
+    except KeyError:
         return None
-
-    return RSSBridgeItemDTO(data["url"], data["title"])
 
 
 @dataclass
