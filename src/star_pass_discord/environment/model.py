@@ -28,6 +28,11 @@ class GenericSocialMedia:
 
 
 @dataclass
+class Internal:
+    social_media_check_interval_seconds: int
+
+
+@dataclass
 class Environment:
     discord: Discord
     rss_bridge: RSSBridge
@@ -36,3 +41,4 @@ class Environment:
     mastodon: GenericSocialMedia
     instagram: GenericSocialMedia
     threads: GenericSocialMedia
+    internal: Internal

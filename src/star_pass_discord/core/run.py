@@ -1,7 +1,11 @@
 import discord
 from discord import app_commands
 from discord.ext import tasks
+from star_pass_discord.environment import get_environment
 from .tasks import TaskExecutor, CheckSocialMediaTask
+
+
+env = get_environment()
 
 
 class Client(discord.Client):
@@ -22,7 +26,7 @@ class Client(discord.Client):
     async def on_ready(self):
         print(f"Logged in as {self.user}!")
 
-    @tasks.loop(minutes=30)
+    @tasks.loop(seconds=env.internal.social_media_check_interval_seconds)
     async def check_social_media(self):
         task = CheckSocialMediaTask(self)
         await self.task_executor.run(task)

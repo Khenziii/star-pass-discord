@@ -1,6 +1,6 @@
 import os
-from .model import (Environment, Discord, Channels,
-                    Identifiable, RSSBridge, GenericSocialMedia)
+from .model import (Environment, Discord, Channels, Identifiable,
+                    RSSBridge, GenericSocialMedia, Internal)
 from dotenv import load_dotenv
 
 
@@ -32,6 +32,8 @@ def get_environment() -> Environment:
     instagram = GenericSocialMedia(get_variable("INSTAGRAM_USERNAME"))
     threads = GenericSocialMedia(get_variable("THREADS_USERNAME"))
 
+    internal = Internal(int(get_variable("SOCIAL_MEDIA_CHECK_INTERVAL_SECONDS")))
+
     return Environment(
         discord,
         rss_bridge,
@@ -40,4 +42,5 @@ def get_environment() -> Environment:
         mastodon,
         instagram,
         threads,
+        internal,
     )

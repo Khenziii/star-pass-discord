@@ -12,15 +12,13 @@ from star_pass_discord.socials import (
 from star_pass_discord.socials.infrastructure import RSSBridgeGetter
 
 
-# If a post has been added in RECENT_POST_MINUTES minutes, it is considered recent.
-# This means that the bot will consider sending a notification about it to the channel.
-RECENT_POST_MINUTES = 30
-
-
 # Getter fetches most recent posts.
 async def check_platform(getter: RSSBridgeGetter, ctx: discord.Client):
     print(f"Fetching most recent posts from {getter.platform}...")
     posts = getter.query()
+
+    env = get_environment()
+    fresh_post_seconds = env.internal.social_media_check_interval_seconds
 
     fresh_posts = []
     for post in posts:
@@ -28,13 +26,13 @@ async def check_platform(getter: RSSBridgeGetter, ctx: discord.Client):
         now = datetime.now(timezone.utc)
 
         diference = now - posted_at_date
-        is_fresh = diference < timedelta(minutes=30)
+        is_fresh = diference < timedelta(seconds=fresh_post_seconds)
 
         if is_fresh:
             fresh_posts.append(post)
 
     if len(fresh_posts) == 0:
-        print(f"No fresh posts (posted in last {RECENT_POST_MINUTES} minutes) on {getter.platform}!")
+        print(f"No fresh posts (posted in last ~{fresh_post_seconds // 60} minutes) on {getter.platform}!")
         return
 
     # TODO: check if we've already sent a notification about this post.
