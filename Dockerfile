@@ -15,4 +15,6 @@ COPY . .
 
 RUN poetry install --only-root
 
+ENV PYTHONUNBUFFERED=1
+
 CMD ["poetry", "run", "star-pass-discord"]
