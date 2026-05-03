@@ -28,7 +28,7 @@ jobs:
         run: pip3 install 'poetry>=2.0.0,<3.0.0'
 
       - name: Install dependencies
-        run: poetry install --all-groups
+        run: POETRY_VENV_IN_PROJECT=true poetry install --all-groups
 
       - name: Build Docker image
         run: poe docker
