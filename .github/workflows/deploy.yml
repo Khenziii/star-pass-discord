@@ -24,8 +24,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Install dependency manager
+        run: pip3 install 'poetry>=2.0.0,<3.0.0'
+
       - name: Install dependencies
         run: poetry install
+
+      - name: Build Docker image
+        run: poe docker
       
       - name: Login to Github's Container Registry
         uses: docker/login-action@v3
@@ -33,9 +39,6 @@ jobs:
           registry: https://ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build Docker image
-        run: poetry run docker
 
       - name: Push Docker image
         run: docker push ghcr.io/khenziii/star-pass-discord:latest
