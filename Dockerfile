@@ -4,8 +4,7 @@ WORKDIR /app
 
 RUN pip install --no-cache-dir poetry
 
-ENV POETRY_VENV_IN_PROJECT=true \
-    POETRY_NO_INTERACTION=1
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 
 COPY pyproject.toml poetry.lock ./
 
