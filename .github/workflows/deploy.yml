@@ -31,7 +31,7 @@ jobs:
         run: poetry install --all-groups
 
       - name: Build Docker image
-        run: ls /home/runner/.cache/pypoetry/virtualenvs && source /home/runner/.cache/pypoetry/virtualenvs/bin/activate && poe docker
+        run: source $(poetry env info --path)/bin/activate && poe docker
       
       - name: Login to Github's Container Registry
         uses: docker/login-action@v3
