@@ -1,4 +1,5 @@
 import discord
+import asyncio
 from datetime import datetime, timedelta, timezone
 from star_pass_discord.environment import get_environment
 from star_pass_discord.core.tasks.task import Task, TaskName
@@ -15,7 +16,7 @@ from star_pass_discord.socials.infrastructure import RSSBridgeGetter
 # Getter fetches most recent posts.
 async def check_platform(getter: RSSBridgeGetter, ctx: discord.Client):
     print(f"Fetching most recent posts from {getter.platform}...")
-    posts = getter.query()
+    posts = await asyncio.to_thread(getter.query)
 
     env = get_environment()
     fresh_post_seconds = env.internal.social_media_check_interval_seconds
